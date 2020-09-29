@@ -52,6 +52,7 @@ include_graphics('../img/fig-1.jpg')
 <br>
 
 ```{r, message = FALSE, warning = FALSE, echo = FALSE, fig.align="center", fig.width=10, fig.height=8, fig.cap='**Figure 2:** Regional average annual precipitation in mm/year. This figure shows the latitudinal variation in annual precipitation rates, resulting in Chile having three distinct climatological zones: Average Annual precipitation ranges from >20mm/year in the Northern regions to over 3000mm/year in parts of Southern Chile. Chile’s irregular hydrology leads to regional water availability variations, particularly in densely populated Central Chile. Data from ref (1). Figure from (7).'}
+
 include_graphics('../img/fig-2.4.jpg')
 ```
 
@@ -94,6 +95,7 @@ include_graphics('../img/fig-3.3.jpg')
 <br>
 
 ```{r, message = FALSE, warning = FALSE, echo = FALSE, fig.align="center", fig.width=10, fig.height=8, fig.cap='**Figure 4:** Precipitation, Runoff, and Evaporation water balances across Chile’s three regions in m3/s. The water balance compares precipitation received to the amount of water that runoffs off to the ocean or is evaporated. Dramatic differences can be seen in Chile. In the north, most of the water is lost through evaporation from surface waters. In Central Chile roughly a third of water is lost to evaporation and two thirds flow to the ocean. In the South, there are abundant surface water resources that run off to the ocean; the south has population density is very low population density and minimal irrigation demands. Figure from (7).'}
+
 include_graphics('../img/fig-4.7.jpg')
 ```
 
