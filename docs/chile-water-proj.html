@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<!-- Github Logo -->
+
+
+
+<meta name="author" content="Angus Watters" />
+
+
+<title>Water resource management in Chile:</title>
+
+<script src="chile-water-proj_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="chile-water-proj_files/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
+<script src="chile-water-proj_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="chile-water-proj_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="chile-water-proj_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="chile-water-proj_files/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="chile-water-proj_files/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="chile-water-proj_files/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="chile-water-proj_files/navigation-1.1/tabsets.js"></script>
+<script src="chile-water-proj_files/navigation-1.1/codefolding.js"></script>
+<script src="chile-water-proj_files/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="chile-water-proj_files/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="chile-water-proj_files/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="C:\Users\angus\OneDrive\Documents\R\win-library\4.0\mikedown\rmarkdown\templates\ucsb\resources\style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+    <img style="margin-bottom: 20px" src="https://github.com/mikejohnson51/mikedown/raw/master/inst/rmarkdown/templates/ucsb/resources/ucsb-navy-white.png" alt="logo">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Water resource management in Chile:</h1>
+<h3 class="subtitle"><em>Challenges, opportunities, and tradeoffs</em></h3>
+<h4 class="author" style="text-align: center;"><em><a href="https://anguswg-ucsb.github.io/">Angus Watters</a> - </em></h4>
+
+</div>
+
+
+<hr />
+<p><br></p>
+<div id="overview-of-chile" class="section level1">
+<h1><strong>Overview of Chile:</strong></h1>
+<hr />
+<div id="chile-is-a-south-american-country-with-a-variety-of-climates-a-moderately-sized-predominantly-urban-population-and-a-growing-economy.-chile-spans-40-of-latitude-leading-to-various-climates-dry-deserts-in-the-north-a-mediterranean-climate-in-the-center-and-a-wet-humid-climate-in-the-south-figure-1-1.-chile-is-750000-km2-with-21-of-land-dedicated-to-agriculture-2-3.-precipitation-varies-from-the-north-to-the-south-figure-2-1-2.-the-rainy-season-is-from-june-to-september.-chile-has-a-population-of-17-million-and-87-of-the-population-lives-in-central-chile-around-the-cities-of-santiago-and-valparaiso.-the-northern-and-southern-regions-are-rural-and-scarcely-populated-2.-over-the-last-30-years-chiles-gdp-has-risen-6-annually-3.-chiles-economy-is-based-on-foreign-trade-and-exports-of-its-mining-and-agricultural-resources-2-3.-water-demands-are-expected-to-increase-as-chiles-economy-continues-to-grow-around-water-intensive-industries-while-water-supply-is-expected-to-decrease." class="section level5">
+<h5>Chile is a South American country with a variety of climates, a moderately sized, predominantly urban population, and a growing economy. Chile spans ~40° of latitude leading to various climates: dry deserts in the north, a Mediterranean climate in the center and a wet, humid climate in the south (Figure 1) (1). Chile is ~750,000 km2, with 21% of land dedicated to agriculture (2, 3). Precipitation varies from the North to the South (Figure 2) (1, 2). The rainy season is from June to September. Chile has a population of ~17 million and 87% of the population lives in central Chile around the cities of Santiago and Valparaiso. The northern and southern regions are rural and scarcely populated (2). Over the last 30 years Chile’s GDP has risen 6% annually (3). Chile’s economy is based on foreign trade and exports of its mining and agricultural resources (2, 3). Water demands are expected to increase as Chile’s economy continues to grow around water intensive industries, while water supply is expected to decrease.</h5>
+<hr />
+<p><br> <br> <br> <br></p>
+<div class="figure" style="text-align: center">
+<img src="../img/fig-1.jpg" alt="**Figure 1:** Chile’s location within the South American continent. Chile lies on the southwestern portion of South America, bordered by the Pacific Ocean on the west, Peru on the north, Bolivia on the northeast, Argentina on the west and River valleys run east-west from the Andes Mountains to the Pacific Ocean.  Chile is the longest country in the world, covering 2,653 miles north to south and 217 miles east to west.  The predominant agricultural region is around the Santiago metropolitan area. Data from ref (1)."  />
+<p class="caption">
+<strong>Figure 1:</strong> Chile’s location within the South American continent. Chile lies on the southwestern portion of South America, bordered by the Pacific Ocean on the west, Peru on the north, Bolivia on the northeast, Argentina on the west and River valleys run east-west from the Andes Mountains to the Pacific Ocean. Chile is the longest country in the world, covering 2,653 miles north to south and 217 miles east to west. The predominant agricultural region is around the Santiago metropolitan area. Data from ref (1).
+</p>
+</div>
+<hr />
+<p><br> <br> <br> <br> <br> <br> <br> <br></p>
+<div class="figure" style="text-align: center">
+<img src="../img/fig-2.4.jpg" alt="**Figure 2:** Regional average annual precipitation in mm/year. This figure shows the latitudinal variation in annual precipitation rates, resulting in Chile having three distinct climatological zones: Average Annual precipitation ranges from &gt;20mm/year in the Northern regions to over 3000mm/year in parts of Southern Chile. Chile’s irregular hydrology leads to regional water availability variations, particularly in densely populated Central Chile. Data from ref (1). Figure from (7)."  />
+<p class="caption">
+<strong>Figure 2:</strong> Regional average annual precipitation in mm/year. This figure shows the latitudinal variation in annual precipitation rates, resulting in Chile having three distinct climatological zones: Average Annual precipitation ranges from &gt;20mm/year in the Northern regions to over 3000mm/year in parts of Southern Chile. Chile’s irregular hydrology leads to regional water availability variations, particularly in densely populated Central Chile. Data from ref (1). Figure from (7).
+</p>
+</div>
+<hr />
+<p><br> <br> <br> <br></p>
+</div>
+</div>
+<div id="water-supply-in-chile" class="section level1">
+<h1><strong>Water Supply in Chile:</strong></h1>
+<hr />
+<div id="most-of-chiles-water-supply-is-comprised-of-surface-waters-figure-3-1-4.-chiles-surface-water-resources-are-comprised-of-rivers-lakes-and-reservoir-storage-4.-annual-precipitation-river-runoff-and-water-losses-due-to-evaporation-vary-with-latitude-figure-4-consequently-so-does-water-availability-figure-5-3-4.-the-northern-rivers-are-fed-by-snow-melt-central-rivers-are-fed-by-snow-melt-and-rain-and-southern-rivers-are-fed-by-rain-figure-5-4-5.-northern-groundwater-aquifers-are-comprised-of-fossil-water-and-experience-minimal-recharge-from-surface-waters-3." class="section level5">
+<h5>Most of Chile’s water supply is comprised of surface waters (Figure 3) (1, 4). Chile’s surface water resources are comprised of rivers, lakes, and reservoir storage (4). Annual precipitation, River runoff, and water losses due to evaporation vary with latitude (Figure 4), consequently, so does water availability (Figure 5) (3, 4). The northern rivers are fed by snow melt, central rivers are fed by snow melt and rain, and southern rivers are fed by rain (Figure 5) (4, 5). Northern groundwater aquifers are comprised of fossil water and experience minimal recharge from surface waters (3).</h5>
+<hr />
+<p><br> <br> <br> <br></p>
+<div class="figure" style="text-align: center">
+<img src="../img/fig-3.3.jpg" alt="**Figure 3:** Distribution of renewable water resources in Chile. Comparison between total renewable surface water and groundwater resources in Chile in millions of cubic meters per year. Chile’s renewable water resources is comprised of 87% (923,100 million m3 per year) surface water and 13% (140000 million m3 per year) groundwater.  Data from ref (1)."  />
+<p class="caption">
+<strong>Figure 3:</strong> Distribution of renewable water resources in Chile. Comparison between total renewable surface water and groundwater resources in Chile in millions of cubic meters per year. Chile’s renewable water resources is comprised of 87% (923,100 million m3 per year) surface water and 13% (140000 million m3 per year) groundwater. Data from ref (1).
+</p>
+</div>
+<hr />
+<p><br> <br> <br> <br> <br> <br> <br> <br></p>
+<div class="figure" style="text-align: center">
+<img src="../img/fig-4.7.jpg" alt="**Figure 4:** Precipitation, Runoff, and Evaporation water balances across Chile’s three regions in m3/s. The water balance compares precipitation received to the amount of water that runoffs off to the ocean or is evaporated. Dramatic differences can be seen in Chile. In the north, most of the water is lost through evaporation from surface waters. In Central Chile roughly a third of water is lost to evaporation and two thirds flow to the ocean. In the South, there are abundant surface water resources that run off to the ocean; the south has population density is very low population density and minimal irrigation demands. Figure from (7)."  />
+<p class="caption">
+<strong>Figure 4:</strong> Precipitation, Runoff, and Evaporation water balances across Chile’s three regions in m3/s. The water balance compares precipitation received to the amount of water that runoffs off to the ocean or is evaporated. Dramatic differences can be seen in Chile. In the north, most of the water is lost through evaporation from surface waters. In Central Chile roughly a third of water is lost to evaporation and two thirds flow to the ocean. In the South, there are abundant surface water resources that run off to the ocean; the south has population density is very low population density and minimal irrigation demands. Figure from (7).
+</p>
+</div>
+<hr />
+<p><br> <br> <br> <br> <br> <br> <br> <br></p>
+<div class="figure" style="text-align: center">
+<img src="../img/fig-5.7.jpg" alt="**Figure 5:** Regional water availability per capita. The Aysen and Magallanes regions are not shown due to the small populations. The red dotted line indicates the recommended threshold value of 1,000m3/person/year of freshwater resources. Water availability in the central regions where ~80% of the population lives does meet this threshold. The Santiago metropolitan region experiences less than 800m3/person/year. Water availability increases southbound, with low water available in the North and Central regions and high-water availability in the south. South of the Metropolitan region water availability reaches levels over 10,000m3/person/year, however these southern regions are scarcely populated and demand less water (3, 7). Figure from (7)."  />
+<p class="caption">
+<strong>Figure 5:</strong> Regional water availability per capita. The Aysen and Magallanes regions are not shown due to the small populations. The red dotted line indicates the recommended threshold value of 1,000m3/person/year of freshwater resources. Water availability in the central regions where ~80% of the population lives does meet this threshold. The Santiago metropolitan region experiences less than 800m3/person/year. Water availability increases southbound, with low water available in the North and Central regions and high-water availability in the south. South of the Metropolitan region water availability reaches levels over 10,000m3/person/year, however these southern regions are scarcely populated and demand less water (3, 7). Figure from (7).
+</p>
+</div>
+<hr />
+<p><br> <br> <br> <br></p>
+</div>
+</div>
+<div id="water-demands-in-chile" class="section level1">
+<h1><strong>Water Demands in Chile:</strong></h1>
+<hr />
+<div id="in-chile-the-primary-water-demands-are-for-energy-and-agriculture-followed-by-city-and-environmental-demands-figure-6.-water-use-in-chile-differs-regionally-the-mining-and-industrial-sectors-are-concentrated-in-the-north-while-large-scale-agricultural-is-in-central-chile-figure-7-1-7.-irrigation-makes-up-73-of-water-consumption-in-chile-figure-6.-municipal-water-demands-are-greatest-near-the-capital-santiago-figure-8-3.-decreased-water-quality-from-pollution-and-decreased-stream-flows-from-upstream-dams-have-put-stress-on-river-and-groundwater-ecosystems-4-9." class="section level5">
+<h5>In Chile, the primary water demands are for energy and agriculture, followed by city and environmental demands (Figure 6). Water use in Chile differs regionally; the mining and industrial sectors are concentrated in the north, while large scale agricultural is in central Chile (Figure 7) (1, 7). Irrigation makes up ~73% of water consumption in Chile (Figure 6). Municipal water demands are greatest near the capital, Santiago (Figure 8) (3). Decreased water quality from pollution and decreased stream flows from upstream dams have put stress on river and groundwater ecosystems (4, 9).</h5>
+<hr />
+<p><br> <br> <br> <br></p>
+<div class="figure" style="text-align: center">
+<img src="../img/fig-6.3.jpg" alt="**Figure 6:** Chile’s water withdrawals by sector in millions of cubic meters per year. Agriculture is the dominant source of water withdrawals. Mineral mining and industrial processing require thermoelectric energy, which demands cooling water. Chile’s irrigated agriculture water demands are met by surface waters, with small amounts of groundwater irrigation occurring in rural communities in the north and south. Data reflects measurements from 2006. Data from (1)."  />
+<p class="caption">
+<strong>Figure 6:</strong> Chile’s water withdrawals by sector in millions of cubic meters per year. Agriculture is the dominant source of water withdrawals. Mineral mining and industrial processing require thermoelectric energy, which demands cooling water. Chile’s irrigated agriculture water demands are met by surface waters, with small amounts of groundwater irrigation occurring in rural communities in the north and south. Data reflects measurements from 2006. Data from (1).
+</p>
+</div>
+<hr />
+<p><br> <br> <br> <br> <br> <br> <br> <br></p>
+<div class="figure" style="text-align: center">
+<img src="../img/fig-7.4.jpg" alt="**Figure 7:** Percentage of irrigation, municipal, industrial, and mining water use by region. Chile’s mining industry is concentrated in the north; mining is a large proportion of water withdrawals. In the north, groundwater is used to meet water demands from mining operations. Mining is Chile’s most important economic industry, and subsequently is the largest demander of water. Irrigation is the primary water demander in central Chile. Per capita municipal water demands are greatest in the Valparaiso and Metropolitan regions. Figure from (7)."  />
+<p class="caption">
+<strong>Figure 7:</strong> Percentage of irrigation, municipal, industrial, and mining water use by region. Chile’s mining industry is concentrated in the north; mining is a large proportion of water withdrawals. In the north, groundwater is used to meet water demands from mining operations. Mining is Chile’s most important economic industry, and subsequently is the largest demander of water. Irrigation is the primary water demander in central Chile. Per capita municipal water demands are greatest in the Valparaiso and Metropolitan regions. Figure from (7).
+</p>
+</div>
+<hr />
+<p><br> <br> <br> <br> <br> <br> <br> <br></p>
+<div class="figure" style="text-align: center">
+<img src="../img/fig-8.jpg" alt="**Figure 8:** Municipal water use in the Santiago metropolitan area compared to the average in the rest of the country in L/person/day. Per capita water demands in Santiago are nearly double that of the average throughout the rest of Chile. Data from (7)."  />
+<p class="caption">
+<strong>Figure 8:</strong> Municipal water use in the Santiago metropolitan area compared to the average in the rest of the country in L/person/day. Per capita water demands in Santiago are nearly double that of the average throughout the rest of Chile. Data from (7).
+</p>
+</div>
+<hr />
+<p><br> <br> <br> <br></p>
+</div>
+</div>
+<div id="anthropogenic-drivers-of-change-in-chile" class="section level1">
+<h1><strong>Anthropogenic Drivers of Change in Chile:</strong></h1>
+<hr />
+<div id="climate-change-population-growth-increased-economic-activity-and-poor-collaboration-amongst-users-will-impact-chiles-water-supplies-and-demands-over-the-next-century.-climate-projections-show-an-average-temperature-increase-of-2.5c-with-annual-precipitation-decreasing-30-percent-by-2070-2100-figure-9-3-7-10.-chiles-population-is-growing-increasing-demand-for-potable-water-and-increased-surface-water-runoff-from-expanding-urban-areas-figure-10-5-11.-chiles-natural-resource-based-economy-is-growing-increasing-water-demands-figure-11-4-7-12.-a-lack-of-administrative-communication-amongst-water-users-affects-water-quality-and-quantity-for-downstream-users-3-4-7." class="section level5">
+<h5>Climate change, population growth, increased economic activity, and poor collaboration amongst users will impact Chile’s water supplies and demands over the next century. Climate projections show an average temperature increase of ~2.5˚C with annual precipitation decreasing 30 percent by 2070-2100 (Figure 9) (3, 7, 10). Chile’s population is growing, increasing demand for potable water and increased surface water runoff from expanding urban areas (Figure 10) (5, 11). Chile’s natural resource-based economy is growing, increasing water demands (Figure 11) (4, 7, 12). A lack of administrative communication amongst water users affects water quality and quantity for downstream users (3, 4, 7).</h5>
+<hr />
+<p><br></p>
+<div class="figure" style="text-align: center">
+<img src="../img/fig-9.jpg" alt="**Figure 9:** Climate change projections in Chile for the next century showing increasing average temperatures (a) and decreasing precipitation (b). (a) Projected average temperatures through 2099 shows temperature increases of ~2.5 °C throughout the north-central regions of Chile. (b) Projected annual precipitation change, shows a 20-30% drop in annual precipitation by 2100 through most of Chile. Small pockets in the North and South showing increased precipitation. Increased temperature and decreased precipitation result in reduction in mountain runoff, reduction in snowpack, retreating glaciers, and an increase in the frequency and intensity of drought-flood scenarios. Figure from (7)."  />
+<p class="caption">
+<strong>Figure 9:</strong> Climate change projections in Chile for the next century showing increasing average temperatures (a) and decreasing precipitation (b). (a) Projected average temperatures through 2099 shows temperature increases of ~2.5 °C throughout the north-central regions of Chile. (b) Projected annual precipitation change, shows a 20-30% drop in annual precipitation by 2100 through most of Chile. Small pockets in the North and South showing increased precipitation. Increased temperature and decreased precipitation result in reduction in mountain runoff, reduction in snowpack, retreating glaciers, and an increase in the frequency and intensity of drought-flood scenarios. Figure from (7).
+</p>
+</div>
+<hr />
+<p><br> <br> <br> <br></p>
+<div class="figure" style="text-align: center">
+<img src="chile-water-proj_files/figure-html/unnamed-chunk-11-1.png" alt="**Figure 10:** Population growth in Chile from 1950 to 2020, with projected population growth into 2050. The United Nations reports several variants of population projections, the medium variant is mean value within a 95% confidence interval. Chile’s population is projected to grow by approximately 5 percent by 2050. Data from (11)." width="720" />
+<p class="caption">
+<strong>Figure 10:</strong> Population growth in Chile from 1950 to 2020, with projected population growth into 2050. The United Nations reports several variants of population projections, the medium variant is mean value within a 95% confidence interval. Chile’s population is projected to grow by approximately 5 percent by 2050. Data from (11).
+</p>
+</div>
+<hr />
+<p><br> <br> <br> <br> <br> <br> <br> <br></p>
+<div class="figure" style="text-align: center">
+<img src="chile-water-proj_files/figure-html/unnamed-chunk-12-1.png" alt="**Figure 11:** Gross Domestic Product in USD in Chile from 1980-2020 with projections through 2024. Gross domestic product denotes the aggregate value of all services and goods produced within a country in any given year. GDP is an important indicator of a country's economic power. Red markers indicate Chile’s GDP in 2002, 2006, 2020 and the 2024 projection – where we saw GDP double over the period of interest. Mining, food and chemical processing industries, and agriculture are the largest components of Chile’s economy; all of which are growing and subsequently so are their respective water withdrawals. Data from (12)." width="720" />
+<p class="caption">
+<strong>Figure 11:</strong> Gross Domestic Product in USD in Chile from 1980-2020 with projections through 2024. Gross domestic product denotes the aggregate value of all services and goods produced within a country in any given year. GDP is an important indicator of a country’s economic power. Red markers indicate Chile’s GDP in 2002, 2006, 2020 and the 2024 projection – where we saw GDP double over the period of interest. Mining, food and chemical processing industries, and agriculture are the largest components of Chile’s economy; all of which are growing and subsequently so are their respective water withdrawals. Data from (12).
+</p>
+</div>
+<hr />
+<p><br> <br> <br> <br></p>
+</div>
+</div>
+<div id="water-resource-opportunities-in-chile" class="section level1">
+<h1><strong>Water Resource Opportunities in Chile:</strong></h1>
+<div id="chile-has-two-key-opportunities-to-combat-its-water-challenges-increase-water-use-efficiency-in-agriculture-and-municipalities-and-develop-cooperation-among-water-users.-implementing-microirrigation-systems-figure-12-13-and-conservational-agriculture-practices-figure-14-could-increase-agricultural-water-efficiency-6-8-13.-chile-can-introduce-incentives-for-reductions-in-water-use-raise-awareness-on-water-issues-and-create-efficiency-standards-for-buildings-3-6.-chile-can-institute-penalties-on-water-overages-and-nonessential-water-consumption-and-invest-in-upgrading-piping-infrastructure-6.-establishing-integrated-water-management-among-water-users-can-improve-water-allocation-and-reduce-pollution-3-4-6." class="section level5">
+<h5>Chile has two key opportunities to combat its water challenges: increase water-use efficiency in agriculture and municipalities and develop cooperation among water users. Implementing microirrigation systems (Figure 12-13) and conservational agriculture practices (Figure 14) could increase agricultural water efficiency (6-8, 13). Chile can introduce incentives for reductions in water use, raise awareness on water issues, and create efficiency standards for buildings (3, 6). Chile can institute penalties on water overages and nonessential water consumption, and invest in upgrading piping infrastructure (6). Establishing integrated water management among water users can improve water allocation and reduce pollution (3, 4, 6).</h5>
+<hr />
+<p><br> <br> <br> <br> <br> <br></p>
+<div class="figure" style="text-align: center">
+<img src="../img/fig-12.jpg" alt="**Figure 12:** Area equipped for surface, sprinkler, and microirrigation. Surface irrigation applies water at ~40-80 percent efficiency while micro irrigation applies water at ~8095 percent efficiency. Approximately 70 percent of Chiles agriculture is surface irrigated with efficiencies in the 35-40 percent range.   Data from (1)"  />
+<p class="caption">
+<strong>Figure 12:</strong> Area equipped for surface, sprinkler, and microirrigation. Surface irrigation applies water at ~40-80 percent efficiency while micro irrigation applies water at ~8095 percent efficiency. Approximately 70 percent of Chiles agriculture is surface irrigated with efficiencies in the 35-40 percent range. Data from (1)
+</p>
+</div>
+<hr />
+<p><br> <br> <br> <br> <br> <br> <br> <br></p>
+<div class="figure" style="text-align: center">
+<img src="../img/fig-13.3.jpg" alt="**Figure 13:** Irrigated areas in Chile in hectares and the associated irrigation efficiency. Irrigation efficiency is the overall efficiency of physical irrigation systems and is a composite of water conveyance efficiency and water application efficiency. The predominant agriculture areas in central Chile display irrigation efficiencies of ~35 percent, indicating the use of surface irrigation. Chile can invest in micro irrigation systems that will more efficiently use and subsequently, conserve water. Figure from (7). "  />
+<p class="caption">
+<strong>Figure 13:</strong> Irrigated areas in Chile in hectares and the associated irrigation efficiency. Irrigation efficiency is the overall efficiency of physical irrigation systems and is a composite of water conveyance efficiency and water application efficiency. The predominant agriculture areas in central Chile display irrigation efficiencies of ~35 percent, indicating the use of surface irrigation. Chile can invest in micro irrigation systems that will more efficiently use and subsequently, conserve water. Figure from (7).
+</p>
+</div>
+<hr />
+<p><br> <br> <br> <br> <br> <br> <br> <br></p>
+<div class="figure" style="text-align: center">
+<img src="../img/fig-14.jpg" alt="**Figure 14:** Percentage of arable land area using conventional and conservational agricultural practices. Conservational agriculture is characterized by little to no tillage, usage of cover crops, and crop diversification. Conservation tillage and cover crops can increase soil moisture retention, decrease evaporative losses, and decrease surface runoff, thus increasing water conservation, and reducing the need for irrigation. Chile can increase conservation agriculture practices, which will improve soil ecosystems and reduce water demands. Data from (1)."  />
+<p class="caption">
+<strong>Figure 14:</strong> Percentage of arable land area using conventional and conservational agricultural practices. Conservational agriculture is characterized by little to no tillage, usage of cover crops, and crop diversification. Conservation tillage and cover crops can increase soil moisture retention, decrease evaporative losses, and decrease surface runoff, thus increasing water conservation, and reducing the need for irrigation. Chile can increase conservation agriculture practices, which will improve soil ecosystems and reduce water demands. Data from (1).
+</p>
+</div>
+<hr />
+<p><br> <br> <br> <br></p>
+</div>
+</div>
+<div id="water-resource-tradeoffs-in-chile" class="section level1">
+<h1><strong>Water Resource Tradeoffs in Chile:</strong></h1>
+<div id="chile-faces-tradeoffs-if-it-is-to-implement-changes-to-agricultural-residential-and-water-management-practices-discussed-above.-replacing-surface-irrigation-with-micro-irrigation-would-decrease-agricultural-water-requirements-and-evaporative-losses-however-micro-irrigation-has-a-high-initial-cost-and-the-departure-from-surface-irrigation-can-decrease-deep-percolation-into-groundwater-aquifers-figure-15-6-13.-implementing-incentives-and-penalties-will-reduce-water-demands-and-lessen-water-stress-on-the-environment-yet-enacting-these-programs-requires-governmental-oversite-and-is-politically-and-socially-unpopular-figure-16-6-13-14.-deteriorated-pipes-poor-infrastructure-and-inaccuracies-in-water-monitoring-systems-account-for-22-percent-of-chiles-avoidable-water-losses-however-upgrading-these-systems-requires-substantial-monetary-and-human-capital-investments-6-15.-creating-solidarity-among-administrative-regions-will-cultivate-sustainable-water-resource-management-solutions-but-would-require-cooperation-between-the-chilean-government-and-the-water-users-3-6." class="section level5">
+<h5>Chile faces tradeoffs if it is to implement changes to agricultural, residential, and water management practices discussed above. Replacing surface irrigation with micro irrigation would decrease agricultural water requirements and evaporative losses, however micro irrigation has a high initial cost and the departure from surface irrigation can decrease deep percolation into groundwater aquifers (Figure 15) (6, 13). Implementing incentives and penalties will reduce water demands and lessen water stress on the environment, yet enacting these programs requires governmental oversite and is politically and socially unpopular (Figure 16) (6, 13, 14). Deteriorated pipes, poor infrastructure, and inaccuracies in water monitoring systems account for 22 percent of Chile’s avoidable water losses, however upgrading these systems requires substantial monetary and human capital investments (6, 15). Creating solidarity among administrative regions will cultivate sustainable water resource management solutions but would require cooperation between the Chilean government and the water users (3, 6).</h5>
+<hr />
+<p><br> <br> <br> <br> <br> <br> <br> <br></p>
+<div class="figure" style="text-align: center">
+<img src="../img/fig-15.jpg" alt="**Figure 15:** Tradeoffs associated with Micro irrigation systems. Micro irrigation systems are highly efficient and have minor potential water losses, however micro irrigation systems require a costly upfront investment and regular maintenance. The potential benefits of efficiency and reduced water use often outweigh the costs of implementation if resources are available. Data from (6, 13)."  />
+<p class="caption">
+<strong>Figure 15:</strong> Tradeoffs associated with Micro irrigation systems. Micro irrigation systems are highly efficient and have minor potential water losses, however micro irrigation systems require a costly upfront investment and regular maintenance. The potential benefits of efficiency and reduced water use often outweigh the costs of implementation if resources are available. Data from (6, 13).
+</p>
+</div>
+<hr />
+<p><br> <br> <br> <br> <br> <br> <br> <br></p>
+<hr />
+<div class="figure" style="text-align: center">
+<img src="../img/fig-16.jpg" alt="**Figure 16:** Methods to decrease water demands. Minimizing nonessential water uses like watering lawns and filling pools can reduce domestic water demands. Promoting water conservation through television, radio, billboards, and print media can motivate the population to reduce per capita water consumption. Offering rebates to Replace toilets, showerheads, and washing machines with water efficient models can reduce potable water use. Rebate programs and educational campaigns can decrease water demands but require the government to spend capital. Data from (6)."  />
+<p class="caption">
+<strong>Figure 16:</strong> Methods to decrease water demands. Minimizing nonessential water uses like watering lawns and filling pools can reduce domestic water demands. Promoting water conservation through television, radio, billboards, and print media can motivate the population to reduce per capita water consumption. Offering rebates to Replace toilets, showerheads, and washing machines with water efficient models can reduce potable water use. Rebate programs and educational campaigns can decrease water demands but require the government to spend capital. Data from (6).
+</p>
+</div>
+<hr />
+<p><br> <br> <br> <br> <br> <br> <br> <br></p>
+</div>
+<div id="references" class="section level3">
+<h3><strong>References:</strong></h3>
+<hr />
+<ol style="list-style-type: decimal">
+<li><pre><code>   Food and Agriculture Organization of the United Nations. (2015). AQUASTAT. Available at http://www.fao.org/nr/water/aquastat/data/query/index.html?lang=en Accessed [January 19, 2020].</code></pre></li>
+<li><pre><code>   Central Intelligence Agency. (2016). Chile — The World Factbook. Available at https://www.cia.gov/library/publications/the-world-factbook/geos/ci.html Accessed [January 19, 2020].</code></pre></li>
+<li><pre><code>   G. Donoso, Integrated water management in Chile. Departamento de Economía Agraria, Pontificia Universidad Católica de Chile, Santiago, Chile 217-233, (2014). </code></pre></li>
+<li><pre><code>   R. Valdés-Pineda, et al., Water governance in Chile: Availability, management and climate change. Journal of Hydrology 519, 2538–2567 (2014).</code></pre></li>
+<li><pre><code>   Biblioteca del Congreso Nacional de Chile (2015) Integrated Territorial Information System. Available at https://www.bcn.cl/siit [Accessed January 24, 2020]</code></pre></li>
+<li><pre><code>   A. E. Becerra Coauthors, et al., A New Course: Managing Drought and Downpours in the Santiago Metropolitan Region. National Resources Defense Council Inc (2019). </code></pre></li>
+<li><pre><code>   Jiménez Cisneros B., Galizia Tundisi J. Diagnóstico del Agua en las Américas. Foro Consultivo Científico y Tecnológico, AC (2012).</code></pre></li>
+<li><pre><code>   D. Aitken, D. Rivera, A. Godoy- Faúndez, E. Holzapfel, Water Scarcity and the Impact of the Mining and Agricultural Sectors in Chile. Sustainability 1-18, (2016).</code></pre></li>
+<li><pre><code>   E. O’Donnell, E. Macpherson, Challenges and opportunities for environmental water management in chile: An Australian perspective. Journal of Water Law 24-36, (2014).</code></pre></li>
+<li><pre><code>  Organization for Economic Cooperation and Development, “Chile Climate change impact on water systems” (Water and Climate Change Adaption OECD, 2013)</code></pre></li>
+<li><pre><code>  United Nations. (2019). World Population Prospects. Available at https://population.un.org/wpp/Graphs/DemographicProfiles/Line/152 Accessed [February 9, 2020]</code></pre></li>
+<li><pre><code>  International Monetary Fund. (2019). IMF DataMapper. Available at https://www.imf.org/external/datamapper/NGDP_RPCH@WEO/CHL?year=2020 Accessed [February 9, 2020]</code></pre></li>
+<li><pre><code>  Hornberger G.M., Perrone D. (2019) Water Resources – Science and Society (Johns Hopkins University Press, Baltimore, MD.).</code></pre></li>
+<li><pre><code>  G. Donoso, M. Molinos- Senante, Sistema tarifario de agua potable en Chile: una propuesta para mejorar su sostenibilidad. Propuestas para Chile Concurso Políticas Públicas 157-182, (2016).</code></pre></li>
+<li><pre><code>  Australian Water Association. (2017). More investment needed to curtail non-revenue water losses in Australia. Available at https://watersource.awa.asn.au/business/assets-and-operations/more-investment-needed-to-curtail-non-revenue-water-losses-in-australia/ Accessed [February 23, 2020]</code></pre></li>
+</ol>
+</div>
+</div>
+
+
+
+&nbsp;
+<hr />
+
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+&nbsp;
+
+
+</div>
+</div>
+
+</div>
+
+
+
+
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+
+</body>
+</html>
